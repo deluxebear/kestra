@@ -1,6 +1,6 @@
 package io.kestra.core.runners;
 
-import io.kestra.core.models.flows.State;
+import io.kestra.core.models.WorkerJobLifecycle;
 import lombok.Getter;
 import lombok.Synchronized;
 import org.slf4j.Logger;
@@ -38,6 +38,12 @@ public abstract class AbstractWorkerThread extends Thread {
     public void kill() {
         this.kill(true);
     }
+
+    /**
+     * Signals to the job executed by this worker thread to stop.
+     * @see WorkerJobLifecycle#stop()
+     */
+    protected abstract void signalStop();
     
     protected void kill(boolean markAsKilled) {
         this.killed = markAsKilled;

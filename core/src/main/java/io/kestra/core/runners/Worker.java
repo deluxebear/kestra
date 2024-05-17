@@ -758,6 +758,9 @@ public class Worker implements Service, Runnable, AutoCloseable {
             "worker-shutdown"
         ).start();
 
+        // signals all worker tasks and triggers of the shutdown.
+        this.workerThreadReferences.forEach(AbstractWorkerThread::signalStop);
+
         // interrupt RealtimeThread since never ending
         this.workerThreadReferences
             .stream()
