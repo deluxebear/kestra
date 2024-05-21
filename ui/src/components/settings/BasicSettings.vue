@@ -84,7 +84,7 @@
                             :max="50"
                         />
                     </Column>
-                    
+
                     <Column :label="$t('settings.blocks.theme.fields.editor_font_family')">
                         <el-select :model-value="editorFontFamily" @update:model-value="onFontFamily">
                             <el-option
@@ -158,12 +158,12 @@
                     <Column>
                         <el-button v-if="canReadFlows" :icon="Download" @click="exportFlows()" class="w-100">
                             {{ $t("settings.blocks.export.fields.flows") }}
-                        </el-button>                   
+                        </el-button>
                     </Column>
                     <Column>
                         <el-button v-if="canReadTemplates" :icon="Download" @click="exportTemplates()" :hidden="!configs?.isTemplateEnabled" class="w-100">
                             {{ $t("settings.blocks.export.fields.templates") }}
-                        </el-button>                    
+                        </el-button>
                     </Column>
                 </Row>
             </template>
@@ -376,7 +376,8 @@
             langOptions() {
                 return [
                     {value: "en", text: "English"},
-                    {value: "fr", text: "Français"}
+                    {value: "fr",text: "Français"},
+                    {value: "zh", text: "中文"}
                 ];
             },
             themesOptions() {
